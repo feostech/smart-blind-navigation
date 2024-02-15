@@ -2,11 +2,11 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 
-const char* ssid = "AbdulKhaliq";
-const char* password = "9445893437";
-const char* mqtt_server = "192.168.1.18";
+const char* ssid = "SSID";
+const char* password = "SSID-password";
+const char* mqtt_server = "IP-Address";
 const uint16_t mqtt_server_port = 1883;
-const char* mqttTopic = "Test";
+const char* mqttTopic = "Topic-name";
 
 const int trigPin = 5;
 const int echoPin = 18;
@@ -79,9 +79,10 @@ char payload[10];
 dtostrf(measuredDistance, 4, 2, payload);
 mqttClient.publish(mqttTopic, payload);
 if (measuredDistance <= 100) {
-digitalWrite(ledPin, HIGH); 
+digitalWrite(ledPin, HIGH); // Turn on LED
 } else {
-digitalWrite(ledPin, LOW); 
+digitalWrite(ledPin, LOW); // Turn off LED
 }
 delay(1000);
 }
+
